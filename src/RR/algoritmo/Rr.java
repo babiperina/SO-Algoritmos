@@ -152,6 +152,7 @@ public class Rr implements Runnable {
                 e.printStackTrace();
             }
         }
+        print();
     }
 
     public void print() {
