@@ -11,6 +11,7 @@ public class Processo {
     private Integer tempoRestante;
     private int estado;
     private int prioridade;
+    private int quantum;
 
     public Processo() {
         this.id = ++Constantes.IDS;
@@ -56,6 +57,22 @@ public class Processo {
         this.estado = estado;
     }
 
+    public int getPrioridade() {
+        return prioridade;
+    }
+
+    public void setPrioridade(int prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public int getQuantum() {
+        return quantum;
+    }
+
+    public void setQuantum(int quantum) {
+        this.quantum = quantum;
+    }
+
     @Override
     public String toString() {
         return "Processo{" +
@@ -63,7 +80,7 @@ public class Processo {
                 ", duracao=" + duracao +
                 ", tempoRestante=" + tempoRestante +
                 ", estado=" + estado +
+                ", prioridade=" + prioridade +
                 '}';
     }
-
 }
