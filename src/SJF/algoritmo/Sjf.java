@@ -79,8 +79,8 @@ public class Sjf implements Runnable {
     public void run() {
         while (Constantes.SJF_IS_RUNNING) {
             try {
-                printSjf();
-                Thread.sleep(2000);
+                print();
+                Thread.sleep(1000);
                 decrementarTempoRestanteProcessosExecutando();
                 mudarProcessosDeFila();
                 desligarAlgoritmo();
@@ -90,7 +90,7 @@ public class Sjf implements Runnable {
         }
     }
 
-    public void printSjf() {
+    public void print() {
         System.out.println();
         System.out.println("**********************");
         System.out.println("--------CORES--------");

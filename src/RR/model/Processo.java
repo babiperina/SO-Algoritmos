@@ -12,6 +12,7 @@ public class Processo {
     private int estado;
     private int prioridade;
     private int quantum;
+    private int quantumRestante;
 
     public Processo() {
         this.id = ++Constantes.IDS;
@@ -43,9 +44,13 @@ public class Processo {
         return tempoRestante;
     }
 
-    public void decrementarTempoRestante() {
-        if (--this.tempoRestante == 0) {
+    public void decrementarTempoEQuantumRestante() {
+        --this.tempoRestante;
+        --this.quantumRestante;
+        if (this.tempoRestante == 0) {
             this.estado = Estado.FINALIZADO.getValor();
+        } else if (this.quantumRestante == 0) {
+            this.estado = Estado.APTO.getValor();
         }
     }
 
@@ -71,7 +76,9 @@ public class Processo {
 
     public void setQuantum(int quantum) {
         this.quantum = quantum;
+        this.quantumRestante = this.quantum;
     }
+
 
     @Override
     public String toString() {
@@ -81,6 +88,8 @@ public class Processo {
                 ", tempoRestante=" + tempoRestante +
                 ", estado=" + estado +
                 ", prioridade=" + prioridade +
+                ", quantum=" + quantum +
+                ", quantumRestante=" + quantumRestante +
                 '}';
     }
 }
